@@ -9,21 +9,20 @@ const Layout = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Accueil</Link>
             </li>
             <li>
-              <Link to="/housing">Housing</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
+              <Link to="/about">A propos</Link>
             </li>
           </ul>
         </nav>
       </header>
       <Outlet />
       <footer>
-        <img src="" alt="logo" />
-        <p>Footer</p>
+        <div className="content">
+          <img src="/footerlogo.png" alt="logo" />
+          <p>© 2020 Kasa. All rights reserved</p>
+        </div>
       </footer>
     </div>
   );
