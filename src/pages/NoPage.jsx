@@ -1,4 +1,4 @@
-export default function Error() {
+export default function NoPage() {
   return (
     <div>Error</div>
   )
