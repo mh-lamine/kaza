@@ -1,8 +1,9 @@
 import { Outlet, Link } from "react-router-dom";
+import "./Layout.scss";
 
 const Layout = () => {
   return (
-    <div>
+    <div className="container">
       <header>
         <img src="/navlogo.png" alt="logo" />
         <nav>
