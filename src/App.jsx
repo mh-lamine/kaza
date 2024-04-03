@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
-import Home from "./pages/Home";
-import Housing from "./pages/Housing";
-import About from "./pages/About";
-import NoPage from "./pages/NoPage";
+import Home from "./pages/home/Home";
+import Housing from "./pages/housing/Housing";
+import About from "./pages/about/About";
+import NoPage from "./pages/nopage/NoPage";
 import Layout from "./components/layout/Layout";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="housing" element={<Housing />} />
+          <Route path="housing/:id" element={<Housing />} />
           <Route path="about" element={<About />} />
           <Route path="*" element={<NoPage />} />
         </Route>

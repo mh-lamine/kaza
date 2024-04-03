@@ -3,7 +3,7 @@ import "./Layout.scss";
 
 const Layout = () => {
   return (
-    <div className="container">
+    <div className="layout">
       <header>
         <img src="/navlogo.png" alt="logo" />
         <nav>
