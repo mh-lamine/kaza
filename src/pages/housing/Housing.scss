@@ -1,57 +1,78 @@
-.container{
-    padding: 20px;
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ff6060;
+  }
+  p {
+    font-size: 14px;
+  }
+  .tags {
+    display: flex;
+    gap: 10px;
+    span {
+      padding: 5px 10px;
+      font-size: 10px;
+      font-weight: 700;
+      background-color: #ff6060;
+      color: white;
+      border-radius: 5px;
+    }
+  }
+  .rating {
+    display: flex;
+    gap: 5px;
+    span {
+      color: #e3e3e3;
+    }
+    .star {
+      color: #ff6060;
+    }
+  }
+  .features {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    img{
-        height: 250px;
-        width: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    h2{
-        font-size: 18px;
-        font-weight: 500;
-        color: #FF6060;
-    }
-    p{
-      font-size: 14px;
-    }
-    .tags{
-        display: flex;
-        gap: 10px;
-        span{
-            padding: 5px 10px;
-            font-size: 10px;
-            font-weight: 700;
-            background-color: #FF6060;
-            color: white;
-            border-radius: 5px;
-        }
-    }
-    .rating{
-        display: flex;
-        gap: 5px;
-        span{
-            color: #E3E3E3;
-        }
-        .star{
-            color: #FF6060;
-        }
+    font-size: 13px;
+    border-radius: 5px;
+    overflow: hidden;
+    height: fit-content;
+    //FIXME: Add transition to the features
+    transition: all 0.3s ease-in-out;
 
+    button {
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      justify-content: space-between;
+      height: 30px;
+      width: 100%;
+      padding: 0 10px;
+      border: none;
+
+      color: white;
+      background-color: #ff6060;
+      font-weight: 700;
     }
-    button{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 30px;
-        padding: 0 10px;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        background-color: #FF6060;
-        font-size: 13px;
-        font-weight: 700;
+    p {
+      padding: 10px;
     }
+    ul {
+      list-style: none;
+      background-color: #f6f6f673;
+      li {
+        padding: 5px 10px;
+      }
+    }
+  }
 }

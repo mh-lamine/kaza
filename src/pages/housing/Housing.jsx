@@ -12,6 +12,16 @@ export default function Housing() {
   const house = houseList.find((house) => house.id == id);
   const [showDescription, setShowDescription] = useState(false);
   const [showEquipments, setShowEquipments] = useState(false);
+
+  const togglePanel = (e) => {
+    const target = e.target.textContent;
+    if (target === "Description") {
+      setShowDescription(!showDescription);
+    } else {
+      setShowEquipments(!showEquipments);
+    }
+  };
+
   return (
     <>
       <Header id={house.id} />
@@ -36,14 +46,26 @@ export default function Housing() {
             </span>
           ))}
         </div>
-        <button>
-          Description
-          <span>{showDescription ? <FaChevronDown /> : <FaChevronUp />}</span>
-        </button>
-        <button>
-          Équipements
-          <span>{showEquipments ? <FaChevronDown /> : <FaChevronUp />}</span>
-        </button>
+        <div className="features">
+          <button onClick={togglePanel}>
+            Description
+            <span>{showDescription ? <FaChevronDown /> : <FaChevronUp />}</span>
+          </button>
+          {showDescription && <p>{house.description}</p>}
+        </div>
+        <div className="features">
+          <button onClick={togglePanel}>
+            Équipements
+            <span>{showEquipments ? <FaChevronDown /> : <FaChevronUp />}</span>
+          </button>
+          {showEquipments && (
+            <ul>
+              {house.equipments.map((equipment, index) => (
+                <li key={index}>{equipment}</li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </>
   );
