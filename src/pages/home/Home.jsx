@@ -7,7 +7,7 @@ import housesList from "../../assets/houses.json";
 
 export default function Home() {
   const [houses] = useState(housesList);
-  console.log(houses);
+
   return (
     <main >
       <div className="banner">
