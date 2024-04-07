@@ -3,7 +3,6 @@ import "./Housing.scss";
 import houseList from "../../assets/houses.json";
 import { FaStar } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
-import { FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
 
 export default function Housing() {
@@ -13,11 +12,24 @@ export default function Housing() {
   const [showEquipments, setShowEquipments] = useState(false);
 
   const togglePanel = (e) => {
-    const target = e.target.textContent;
-    if (target === "Description") {
+    const el = e.target.parentElement;
+    const title = el.querySelector("h3").innerText;
+    const text = el.childNodes[1];
+    const arrow = el.querySelector("svg");
+    if (title == "Description") {
       setShowDescription(!showDescription);
+      arrow.style.transform = showDescription
+        ? "rotate(0deg)"
+        : "rotate(180deg)";
+
+      text.style.transform = `translateY(${!showDescription ? "0" : "-100%"}`;
     } else {
       setShowEquipments(!showEquipments);
+      arrow.style.transform = showEquipments
+        ? "rotate(0deg)"
+        : "rotate(180deg)";
+
+      text.style.transform = `translateY(${!showEquipments ? "0" : "-100%"}`;
     }
   };
 
@@ -45,23 +57,23 @@ export default function Housing() {
       </div>
       <div className="features">
         <button onClick={togglePanel}>
-          Description
-          <span>{showDescription ? <FaChevronDown /> : <FaChevronUp />}</span>
+          <h3>Description</h3>
+          <FaChevronUp />
         </button>
-        {showDescription && <p>{house.description}</p>}
+        <p>{house.description}</p>
       </div>
       <div className="features">
         <button onClick={togglePanel}>
-          Équipements
-          <span>{showEquipments ? <FaChevronDown /> : <FaChevronUp />}</span>
+          <h3>Équipements</h3>
+          <span>
+            <FaChevronUp />
+          </span>
         </button>
-        {showEquipments && (
-          <ul>
-            {house.equipments.map((equipment, index) => (
-              <li key={index}>{equipment}</li>
-            ))}
-          </ul>
-        )}
+        <ul>
+          {house.equipments.map((equipment, index) => (
+            <li key={index}>{equipment}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
