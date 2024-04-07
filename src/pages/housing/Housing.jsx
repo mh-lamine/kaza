@@ -36,24 +36,34 @@ export default function Housing() {
   return (
     <div className="container">
       <img src={house.cover} />
-      <h2>{house.title}</h2>
-      <p>{house.location}</p>
-      <div className="tags">
-        {house.tags.map((tag, index) => (
-          <span key={index}>{tag}</span>
-        ))}
-      </div>
-      <div className="rating">
-        {Array.from({ length: house.rating }).map((_, i) => (
-          <span key={i} className="star">
-            <FaStar />
-          </span>
-        ))}
-        {Array.from({ length: 5 - house.rating }).map((_, i) => (
-          <span key={i}>
-            <FaStar />
-          </span>
-        ))}
+      <div className="infos">
+        <div className="title">
+          <h2>{house.title}</h2>
+          <p>{house.location}</p>
+          <div className="tags">
+            {house.tags.map((tag, index) => (
+              <span key={index}>{tag}</span>
+            ))}
+          </div>
+        </div>
+        <div className="host">
+          <div className="rating">
+            {Array.from({ length: house.rating }).map((_, i) => (
+              <span key={i} className="star">
+                <FaStar />
+              </span>
+            ))}
+            {Array.from({ length: 5 - house.rating }).map((_, i) => (
+              <span key={i}>
+                <FaStar />
+              </span>
+            ))}
+          </div>
+          <div className="host-info">
+            <span>{house.host.name}</span>
+            <img src={house.host.picture} />
+          </div>
+        </div>
       </div>
       <div className="features">
         <button onClick={togglePanel}>
