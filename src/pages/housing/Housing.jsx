@@ -66,24 +66,26 @@ export default function Housing() {
         </div>
       </div>
       <div className="features">
-        <button onClick={togglePanel}>
-          <h3>Description</h3>
-          <FaChevronUp />
-        </button>
-        <p>{house.description}</p>
-      </div>
-      <div className="features">
-        <button onClick={togglePanel}>
-          <h3>Équipements</h3>
-          <span>
+        <div className="feature-item">
+          <button onClick={togglePanel}>
+            <h3>Description</h3>
             <FaChevronUp />
-          </span>
-        </button>
-        <ul>
-          {house.equipments.map((equipment, index) => (
-            <li key={index}>{equipment}</li>
-          ))}
-        </ul>
+          </button>
+          <p>{house.description}</p>
+        </div>
+        <div className="feature-item">
+          <button onClick={togglePanel}>
+            <h3>Équipements</h3>
+            <span>
+              <FaChevronUp />
+            </span>
+          </button>
+          <ul>
+            {house.equipments.map((equipment, index) => (
+              <li key={index}>{equipment}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
