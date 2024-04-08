@@ -2,8 +2,9 @@ import { useParams } from "react-router-dom";
 import "./Housing.scss";
 import houseList from "../../assets/houses.json";
 import { FaStar } from "react-icons/fa";
-import { FaChevronUp } from "react-icons/fa";
 import { useState } from "react";
+import "../../assets/arrow.svg";
+import arrow from "../../assets/arrow.svg";
 
 export default function Housing() {
   const id = useParams().id;
@@ -12,24 +13,21 @@ export default function Housing() {
   const [showEquipments, setShowEquipments] = useState(false);
 
   const togglePanel = (e) => {
-    const el = e.target.parentElement;
-    const title = el.querySelector("h3").innerText;
-    const text = el.childNodes[1];
-    const arrow = el.querySelector("svg");
-    if (title == "Description") {
+    console.log(showDescription);
+    const text = e.target.parentElement.nextSibling;
+    const arrow = e.target;
+    if (e.target.previousSibling.innerText === "Description") {
       setShowDescription(!showDescription);
       arrow.style.transform = showDescription
         ? "rotate(0deg)"
         : "rotate(180deg)";
-
       text.style.transform = `translateY(${!showDescription ? "0" : "-100%"}`;
     } else {
       setShowEquipments(!showEquipments);
       arrow.style.transform = showEquipments
         ? "rotate(0deg)"
         : "rotate(180deg)";
-
-      text.style.transform = `translateY(${!showEquipments ? "0" : "-100%"}`;
+      // text.style.transform = `translateY(${!showEquipments ? "0" : "-100%"}`;
     }
   };
 
@@ -67,18 +65,16 @@ export default function Housing() {
       </div>
       <div className="features">
         <div className="feature-item">
-          <button onClick={togglePanel}>
+          <button>
             <h3>Description</h3>
-            <FaChevronUp />
+            <img src={arrow} onClick={togglePanel} />
           </button>
           <p>{house.description}</p>
         </div>
         <div className="feature-item">
-          <button onClick={togglePanel}>
+          <button>
             <h3>Équipements</h3>
-            <span>
-              <FaChevronUp />
-            </span>
+            <img src={arrow} onClick={togglePanel} />
           </button>
           <ul>
             {house.equipments.map((equipment, index) => (

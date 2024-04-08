@@ -98,12 +98,17 @@
         h3 {
           font-size: 14px;
         }
+        img{
+          height: 20px;
+          width: 20px;
+        }
       }
       p {
         padding: 10px;
         transform: translateY(-100%);
         z-index: -1;
         transition: all 0.3s;
+        opacity: .6;
       }
       ul {
         list-style: none;
@@ -111,8 +116,9 @@
         transform: translateY(-100%);
         z-index: -1;
         transition: all 0.3s;
+        opacity: .6;
         li {
-          padding: 5px 10px;
+          padding: 3px 10px;
         }
       }
     }
