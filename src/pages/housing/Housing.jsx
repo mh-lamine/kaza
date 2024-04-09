@@ -13,7 +13,6 @@ export default function Housing() {
   const [showEquipments, setShowEquipments] = useState(false);
 
   const togglePanel = (e) => {
-    console.log(showDescription);
     const text = e.target.parentElement.nextSibling;
     const arrow = e.target;
     if (e.target.previousSibling.innerText === "Description") {
@@ -27,7 +26,7 @@ export default function Housing() {
       arrow.style.transform = showEquipments
         ? "rotate(0deg)"
         : "rotate(180deg)";
-      // text.style.transform = `translateY(${!showEquipments ? "0" : "-100%"}`;
+      text.style.transform = `translateY(${!showEquipments ? "0" : "-100%"}`;
     }
   };
 
