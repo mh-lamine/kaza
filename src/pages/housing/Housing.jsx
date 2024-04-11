@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import "./Housing.scss";
 import houseList from "../../assets/houses.json";
-import { FaStar } from "react-icons/fa";
 import { useState } from "react";
 import "../../assets/arrow.svg";
 import arrow from "../../assets/arrow.svg";
+import Stars from "../../components/stars/Stars";
 
 export default function Housing() {
   const id = useParams().id;
@@ -20,13 +20,15 @@ export default function Housing() {
       arrow.style.transform = showDescription
         ? "rotate(0deg)"
         : "rotate(180deg)";
-      text.style.transform = `translateY(${!showDescription ? "0" : "-100%"}`;
+      text.style.height = `${!showDescription ? "fit-content" : "0"}`;
+      text.style.padding = `${!showDescription ? "10px" : "0 10px"}`;
     } else {
       setShowEquipments(!showEquipments);
       arrow.style.transform = showEquipments
         ? "rotate(0deg)"
         : "rotate(180deg)";
-      text.style.transform = `translateY(${!showEquipments ? "0" : "-100%"}`;
+      text.style.height = `${!showEquipments ? "fit-content" : "0"}`;
+      text.style.padding = `${!showEquipments ? "10px" : "0 10px"}`;
     }
   };
 
@@ -44,18 +46,7 @@ export default function Housing() {
           </div>
         </div>
         <div className="host">
-          <div className="rating">
-            {Array.from({ length: house.rating }).map((_, i) => (
-              <span key={i} className="star">
-                <FaStar />
-              </span>
-            ))}
-            {Array.from({ length: 5 - house.rating }).map((_, i) => (
-              <span key={i}>
-                <FaStar />
-              </span>
-            ))}
-          </div>
+          <Stars rating={house.rating} />
           <div className="host-info">
             <span>{house.host.name}</span>
             <img src={house.host.picture} />
