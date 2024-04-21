@@ -17,11 +17,9 @@ const Layout = () => {
           </ul>
         </nav>
       </header>
-      <div className="content">
-        <Outlet />
-      </div>
+      <Outlet />
       <footer>
-        <div className="content">
+        <div className="footer-content">
           <img src="/footerlogo.png" alt="logo" />
           <p>© 2020 Kasa. All rights reserved</p>
         </div>
