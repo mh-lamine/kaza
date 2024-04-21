@@ -7,7 +7,7 @@ import Panel from "../../components/panel/Panel";
 const About = () => {
   return (
     <div className="container">
-      <img src={bgimage} />
+      <img src={bgimage} className="about-img" />
       <div className="about">
         {about.map((about, index) => (
           <Panel key={index} title={about.title} data={about.description} />
