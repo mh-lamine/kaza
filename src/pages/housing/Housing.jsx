@@ -3,14 +3,15 @@ import "./Housing.scss";
 import houseList from "../../assets/houses.json";
 import Stars from "../../components/stars/Stars";
 import Panel from "../../components/panel/Panel";
+import Carousel from "../../components/carousel/Carousel";
 
 export default function Housing() {
   const id = useParams().id;
   const house = houseList.find((house) => house.id == id);
-
   return (
     <div className="container">
-      <img src={house.cover} />
+      {/* <img src={house.cover} /> */}
+      <Carousel pictures={house.pictures} />
       <div className="infos">
         <div className="title">
           <h2>{house.title}</h2>
