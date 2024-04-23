@@ -10,7 +10,6 @@ export default function Housing() {
   const house = houseList.find((house) => house.id == id);
   return (
     <div className="container">
-      {/* <img src={house.cover} /> */}
       <Carousel pictures={house.pictures} />
       <div className="infos">
         <div className="title">

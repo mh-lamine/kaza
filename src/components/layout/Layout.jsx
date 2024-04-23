@@ -17,7 +17,9 @@ const Layout = () => {
           </ul>
         </nav>
       </header>
-      <Outlet />
+      <div className="content">
+        <Outlet />
+      </div>
       <footer>
         <div className="footer-content">
           <img src="/footerlogo.png" alt="logo" />
